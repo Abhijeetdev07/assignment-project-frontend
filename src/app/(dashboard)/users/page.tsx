@@ -92,16 +92,16 @@ export default function UsersPage() {
             </Box>
 
             <Paper sx={{ width: '100%', overflow: 'hidden', borderRadius: 3, boxShadow: 3 }}>
-                <TableContainer sx={{ maxHeight: '70vh' }}>
-                    <Table stickyHeader aria-label="sticky table">
+                <TableContainer sx={{ maxHeight: '70vh', overflowX: 'auto' }}>
+                    <Table stickyHeader aria-label="sticky table" sx={{ minWidth: 900 }}>
                         <TableHead>
                             <TableRow>
-                                <TableCell>User</TableCell>
-                                <TableCell>Email</TableCell>
-                                <TableCell>Gender</TableCell>
-                                <TableCell>Phone</TableCell>
-                                <TableCell>Company</TableCell>
-                                <TableCell align="right">Actions</TableCell>
+                                <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>User</TableCell>
+                                <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>Email</TableCell>
+                                <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>Gender</TableCell>
+                                <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>Phone</TableCell>
+                                <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>Company</TableCell>
+                                <TableCell align="right" sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -114,27 +114,35 @@ export default function UsersPage() {
                             ) : (
                                 users.map((user) => (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={user.id}>
-                                        <TableCell>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                                                <Avatar src={user.image} alt={user.firstName} />
-                                                <Typography variant="subtitle2" fontWeight="medium">
+                                        <TableCell sx={{ py: { xs: 1, sm: 1.5 } }}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.25, sm: 2 } }}>
+                                                <Avatar
+                                                    src={user.image}
+                                                    alt={user.firstName}
+                                                    sx={{ width: { xs: 28, sm: 40 }, height: { xs: 28, sm: 40 } }}
+                                                />
+                                                <Typography
+                                                    variant="subtitle2"
+                                                    fontWeight="medium"
+                                                    sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}
+                                                >
                                                     {user.firstName} {user.lastName}
                                                 </Typography>
                                             </Box>
                                         </TableCell>
-                                        <TableCell>{user.email}</TableCell>
-                                        <TableCell>
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.email}</TableCell>
+                                        <TableCell sx={{ py: { xs: 1, sm: 1.5 } }}>
                                             <Chip
                                                 label={user.gender}
                                                 size="small"
                                                 color={user.gender === 'male' ? 'primary' : 'secondary'}
                                                 variant="outlined"
-                                                sx={{ textTransform: 'capitalize' }}
+                                                sx={{ textTransform: 'capitalize', fontSize: { xs: '0.7rem', sm: '0.75rem' } }}
                                             />
                                         </TableCell>
-                                        <TableCell>{user.phone}</TableCell>
-                                        <TableCell>{user.company.title}</TableCell>
-                                        <TableCell align="right">
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.phone}</TableCell>
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.company.title}</TableCell>
+                                        <TableCell align="right" sx={{ py: { xs: 1, sm: 1.5 } }}>
                                             <Tooltip title="View Details">
                                                 <IconButton component={Link} href={`/users/${user.id}`}>
                                                     <VisibilityIcon color="action" />
