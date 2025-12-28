@@ -28,7 +28,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 sx={{
                     flexGrow: 1,
                     p: 3,
-                    width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
+                    width: '100%',
+                    '@media (min-width: 801px)': {
+                        width: `calc(100% - ${DRAWER_WIDTH}px)`,
+                    },
                     minHeight: '100vh',
                     backgroundColor: 'background.default',
                 }}

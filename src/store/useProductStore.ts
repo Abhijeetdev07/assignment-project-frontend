@@ -49,6 +49,9 @@ export const useProductStore = create<ProductState>((set, get) => ({
 
     fetchProducts: async (skip = 0, limit = 10) => {
         const { searchTerm, selectedCategory } = get();
+
+        if (get().isLoading) return;
+
         set({ isLoading: true });
 
         try {

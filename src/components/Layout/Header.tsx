@@ -38,8 +38,12 @@ export default function Header({ onMenuClick, drawerWidth }: HeaderProps) {
         <AppBar
             position="fixed"
             sx={{
-                width: { sm: `calc(100% - ${drawerWidth}px)` },
-                ml: { sm: `${drawerWidth}px` },
+                width: '100%',
+                ml: 0,
+                '@media (min-width: 801px)': {
+                    width: `calc(100% - ${drawerWidth}px)`,
+                    ml: `${drawerWidth}px`,
+                },
                 backgroundColor: 'background.paper',
                 color: 'text.primary',
                 boxShadow: 1, // Subtle shadow
@@ -51,7 +55,12 @@ export default function Header({ onMenuClick, drawerWidth }: HeaderProps) {
                     aria-label="open drawer"
                     edge="start"
                     onClick={onMenuClick}
-                    sx={{ mr: 2, display: { sm: 'none' } }}
+                    sx={{
+                        mr: 2,
+                        '@media (min-width: 801px)': {
+                            display: 'none',
+                        },
+                    }}
                 >
                     <MenuIcon />
                 </IconButton>

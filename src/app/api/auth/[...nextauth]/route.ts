@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
                     const user = res.data;
 
                     // If no error and we have user data, return it
-                    if (user && user.token) {
+                    if (user && (user.token || user.accessToken)) {
                         return user;
                     }
 
@@ -47,7 +47,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.id = user.id;
                 token.username = user.username;
-                token.accessToken = (user as any).token; // DummyJSON returns 'token'
+                token.accessToken = (user as any).accessToken || (user as any).token; // DummyJSON returns 'accessToken' now
                 token.firstName = (user as any).firstName;
                 token.lastName = (user as any).lastName;
                 token.image = (user as any).image;

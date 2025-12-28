@@ -115,6 +115,7 @@
     *   Wrap list items in `React.memo`.
 
 19. **UI Polish**
+
     *   Ensure all Text/Colors come from the Theme.
     *   Check mobile responsiveness for Tables (scrollable container) and Grid (1 column on mobile, 3-4 on desktop).
 

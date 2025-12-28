@@ -51,7 +51,7 @@ export default function UsersPage() {
     };
 
     const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newLimit = parseInt(event.target.value, 10);
+        const newLimit = Math.max(parseInt(event.target.value, 10), 5);
         fetchUsers(0, newLimit); // Reset to first page with new limit
     };
 

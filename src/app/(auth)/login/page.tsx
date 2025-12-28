@@ -9,11 +9,14 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LoginIcon from '@mui/icons-material/Login';
 // import { useAuthStore } from '@/store/useAuthStore';
 
+const DEFAULT_USERNAME = process.env.NEXT_PUBLIC_DEFAULT_USERNAME ?? '';
+const DEFAULT_PASSWORD = process.env.NEXT_PUBLIC_DEFAULT_PASSWORD ?? '';
+
 export default function LoginPage() {
     const router = useRouter();
     // We can use local state for form control to keep it simple and responsive
-    const [username, setUsername] = React.useState('emilys'); // Default for easier testing
-    const [password, setPassword] = React.useState('emilyspass'); // Default for easier testing
+    const [username, setUsername] = React.useState(DEFAULT_USERNAME);
+    const [password, setPassword] = React.useState(DEFAULT_PASSWORD);
     const [showPassword, setShowPassword] = React.useState(false);
     const [error, setError] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(false);
@@ -141,7 +144,7 @@ export default function LoginPage() {
 
                     <Box sx={{ textAlign: 'center', mt: 1 }}>
                         <Typography variant="caption" color="text.disabled">
-                            Demo Credentials: emilys / emilyspass
+                            Demo Credentials: {DEFAULT_USERNAME && DEFAULT_PASSWORD ? `${DEFAULT_USERNAME} / ${DEFAULT_PASSWORD}` : 'Not configured'}
                         </Typography>
                     </Box>
                 </CardContent>

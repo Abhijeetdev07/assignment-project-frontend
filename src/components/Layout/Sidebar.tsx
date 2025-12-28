@@ -91,10 +91,17 @@ export default function Sidebar({ open, onClose, window }: SidebarProps) {
     return (
         <Box
             component="nav"
-            sx={{ width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
+            sx={{
+                width: 0,
+                flexShrink: 0,
+                '@media (min-width: 801px)': {
+                    width: DRAWER_WIDTH,
+                    flexShrink: 0,
+                },
+            }}
             aria-label="mailbox folders"
         >
-            {/* Mobile Drawer (Temporary) */}
+            {/* Mobile Drawer (Temporary) - Show below 800px */}
             <Drawer
                 container={container}
                 variant="temporary"
@@ -104,18 +111,24 @@ export default function Sidebar({ open, onClose, window }: SidebarProps) {
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    display: { xs: 'block', sm: 'none' },
+                    display: 'block',
+                    '@media (min-width: 801px)': {
+                        display: 'none',
+                    },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
                 }}
             >
                 {content}
             </Drawer>
 
-            {/* Desktop Drawer (Permanent) */}
+            {/* Desktop Drawer (Permanent) - Show above 800px */}
             <Drawer
                 variant="permanent"
                 sx={{
-                    display: { xs: 'none', sm: 'block' },
+                    display: 'none',
+                    '@media (min-width: 801px)': {
+                        display: 'block',
+                    },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH, borderRight: '1px solid #e2e8f0' },
                 }}
                 open

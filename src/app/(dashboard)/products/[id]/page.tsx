@@ -68,7 +68,7 @@ export default function ProductDetailPage() {
 
             <Grid container spacing={4}>
                 {/* Left: Image Gallery */}
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <Box
                         sx={{
                             position: 'relative',
@@ -144,7 +144,7 @@ export default function ProductDetailPage() {
                 </Grid>
 
                 {/* Right: Product Details */}
-                <Grid item xs={12} md={6}>
+                <Grid size={{ xs: 12, md: 6 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
                             <Typography variant="h4" fontWeight="bold">
