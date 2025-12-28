@@ -61,12 +61,12 @@ export default function ProductDetailPage() {
             <Button
                 startIcon={<ArrowBackIcon />}
                 onClick={() => router.back()}
-                sx={{ mb: 3 }}
+                sx={{ mb: { xs: 2, sm: 3 } }}
             >
                 Back to Products
             </Button>
 
-            <Grid container spacing={4}>
+            <Grid container spacing={{ xs: 2, sm: 4 }}>
                 {/* Left: Image Gallery */}
                 <Grid size={{ xs: 12, md: 6 }}>
                     <Box
@@ -95,7 +95,7 @@ export default function ProductDetailPage() {
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'contain',
-                                p: 2
+                                p: { xs: 1, sm: 2 }
                             }}
                         />
 
@@ -128,14 +128,14 @@ export default function ProductDetailPage() {
                                     component="img"
                                     src={img}
                                     sx={{
-                                        width: 80,
-                                        height: 80,
+                                        width: { xs: 64, sm: 80 },
+                                        height: { xs: 64, sm: 80 },
                                         borderRadius: 2,
                                         cursor: 'pointer',
                                         border: index === activeImageIndex ? '2px solid #4F46E5' : '2px solid transparent',
                                         bgcolor: '#f9fafb',
                                         objectFit: 'contain',
-                                        p: 0.5
+                                        p: { xs: 0.25, sm: 0.5 }
                                     }}
                                 />
                             ))}
@@ -146,30 +146,57 @@ export default function ProductDetailPage() {
                 {/* Right: Product Details */}
                 <Grid size={{ xs: 12, md: 6 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
-                            <Typography variant="h4" fontWeight="bold">
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'flex-start',
+                                gap: 1,
+                                flexWrap: 'wrap',
+                                mb: 1,
+                            }}
+                        >
+                            <Typography
+                                variant="h4"
+                                fontWeight="bold"
+                                sx={{
+                                    fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' },
+                                    lineHeight: 1.2,
+                                    wordBreak: 'break-word',
+                                }}
+                            >
                                 {selectedProduct.title}
                             </Typography>
                             <Chip
                                 label={selectedProduct.brand}
                                 size="small"
-                                sx={{ ml: 2, bgcolor: 'primary.light', color: 'white' }}
+                                sx={{ bgcolor: 'primary.light', color: 'white' }}
                             />
                         </Box>
 
-                        <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+                        <Typography
+                            variant="subtitle1"
+                            color="text.secondary"
+                            gutterBottom
+                            sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}
+                        >
                             {selectedProduct.category}
                         </Typography>
 
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: { xs: 2, sm: 3 } }}>
                             <Rating value={selectedProduct.rating} readOnly precision={0.5} />
                             <Typography variant="body2" color="text.secondary">
                                 ({selectedProduct.rating} / 5)
                             </Typography>
                         </Box>
 
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
-                            <Typography variant="h3" fontWeight="bold" color="primary">
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap', mb: { xs: 2, sm: 3 } }}>
+                            <Typography
+                                variant="h3"
+                                fontWeight="bold"
+                                color="primary"
+                                sx={{ fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, lineHeight: 1.1 }}
+                            >
                                 ${selectedProduct.price}
                             </Typography>
                             {selectedProduct.discountPercentage > 0 && (
@@ -182,21 +209,26 @@ export default function ProductDetailPage() {
                             )}
                         </Box>
 
-                        <Typography variant="body1" paragraph color="text.secondary" sx={{ flexGrow: 1 }}>
+                        <Typography
+                            variant="body1"
+                            paragraph
+                            color="text.secondary"
+                            sx={{ flexGrow: 1, fontSize: { xs: '0.95rem', sm: '1rem' } }}
+                        >
                             {selectedProduct.description}
                         </Typography>
 
-                        <Divider sx={{ my: 3 }} />
+                        <Divider sx={{ my: { xs: 2, sm: 3 } }} />
 
-                        <Box sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-between', mb: 3 }}>
-                            <Typography variant="subtitle1" fontWeight="medium">
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, mb: { xs: 2, sm: 3 } }}>
+                            <Typography variant="subtitle1" fontWeight="medium" sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}>
                                 Availability:
                             </Typography>
                             <Typography
                                 variant="subtitle1"
                                 fontWeight="bold"
                                 color={selectedProduct.stock > 0 ? 'success.main' : 'error.main'}
-                                sx={{ ml: 1 }}
+                                sx={{ ml: 1, fontSize: { xs: '0.95rem', sm: '1rem' }, textAlign: 'right' }}
                             >
                                 {selectedProduct.stock > 0 ? `In Stock (${selectedProduct.stock})` : 'Out of Stock'}
                             </Typography>
@@ -208,7 +240,7 @@ export default function ProductDetailPage() {
                             fullWidth
                             startIcon={<AddShoppingCartIcon />}
                             disabled={selectedProduct.stock === 0}
-                            sx={{ borderRadius: 2, py: 1.5, fontSize: '1.1rem' }}
+                            sx={{ borderRadius: 2, py: { xs: 1.25, sm: 1.5 }, fontSize: { xs: '1rem', sm: '1.1rem' } }}
                         >
                             Add to Cart
                         </Button>

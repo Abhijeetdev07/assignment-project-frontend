@@ -23,16 +23,21 @@ export default function DashboardPage() {
 
     return (
         <Box>
-            <Box sx={{ mb: 4 }}>
-                <Typography variant="h4" fontWeight="bold" gutterBottom>
+            <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+                <Typography
+                    variant="h4"
+                    fontWeight="bold"
+                    gutterBottom
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' }, lineHeight: 1.2 }}
+                >
                     Hello, {user?.firstName || 'Admin'} 👋
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="body1" color="text.secondary" sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}>
                     Here is what's happening with your store today.
                 </Typography>
             </Box>
 
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 3 }}>
                 {/* Users Stats Card */}
                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                     <Card
@@ -44,24 +49,34 @@ export default function DashboardPage() {
                             overflow: 'hidden',
                         }}
                     >
-                        <CardContent>
+                        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                 <Box>
-                                    <Typography variant="h6" fontWeight="medium" sx={{ opacity: 0.9 }}>
+                                    <Typography
+                                        variant="h6"
+                                        fontWeight="medium"
+                                        sx={{ opacity: 0.9, fontSize: { xs: '1rem', sm: '1.25rem' } }}
+                                    >
                                         Total Users
                                     </Typography>
-                                    <Typography variant="h3" fontWeight="bold" sx={{ mt: 2 }}>
+                                    <Typography
+                                        variant="h3"
+                                        fontWeight="bold"
+                                        sx={{ mt: { xs: 1.5, sm: 2 }, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, lineHeight: 1.1 }}
+                                    >
                                         {loadingUsers && totalUsers === 0 ? <Skeleton width={60} sx={{ bgcolor: 'rgba(255,255,255,0.2)' }} /> : totalUsers}
                                     </Typography>
                                 </Box>
-                                <PeopleIcon sx={{ fontSize: 48, opacity: 0.3 }} />
+                                <PeopleIcon sx={{ fontSize: { xs: 36, sm: 48 }, opacity: 0.3 }} />
                             </Box>
                             <Button
                                 component={Link}
                                 href="/users"
                                 variant="outlined"
                                 sx={{
-                                    mt: 3,
+                                    mt: { xs: 2, sm: 3 },
+                                    py: { xs: 0.75, sm: 1 },
+                                    fontSize: { xs: '0.875rem', sm: '0.95rem' },
                                     color: 'white',
                                     borderColor: 'rgba(255,255,255,0.5)',
                                     '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }
@@ -82,24 +97,34 @@ export default function DashboardPage() {
                             color: 'white',
                         }}
                     >
-                        <CardContent>
+                        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                 <Box>
-                                    <Typography variant="h6" fontWeight="medium" sx={{ opacity: 0.9 }}>
+                                    <Typography
+                                        variant="h6"
+                                        fontWeight="medium"
+                                        sx={{ opacity: 0.9, fontSize: { xs: '1rem', sm: '1.25rem' } }}
+                                    >
                                         Total Products
                                     </Typography>
-                                    <Typography variant="h3" fontWeight="bold" sx={{ mt: 2 }}>
+                                    <Typography
+                                        variant="h3"
+                                        fontWeight="bold"
+                                        sx={{ mt: { xs: 1.5, sm: 2 }, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, lineHeight: 1.1 }}
+                                    >
                                         {loadingProducts && totalProducts === 0 ? <Skeleton width={60} sx={{ bgcolor: 'rgba(255,255,255,0.2)' }} /> : totalProducts}
                                     </Typography>
                                 </Box>
-                                <ShoppingBagIcon sx={{ fontSize: 48, opacity: 0.3 }} />
+                                <ShoppingBagIcon sx={{ fontSize: { xs: 36, sm: 48 }, opacity: 0.3 }} />
                             </Box>
                             <Button
                                 component={Link}
                                 href="/products"
                                 variant="outlined"
                                 sx={{
-                                    mt: 3,
+                                    mt: { xs: 2, sm: 3 },
+                                    py: { xs: 0.75, sm: 1 },
+                                    fontSize: { xs: '0.875rem', sm: '0.95rem' },
                                     color: 'white',
                                     borderColor: 'rgba(255,255,255,0.5)',
                                     '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.1)' }

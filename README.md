@@ -20,6 +20,18 @@ I picked Zustand heavily over alternatives like Redux because:
 3.  **Handles API calls easily:** You can fetch data right inside the store without needing extra plugins (like Thunks or Sagas).
 4.  **Great for this size:** For a dashboard like this, Redux is overkill. Zustand is perfect.
 
+
+## Project Structure
+Here is how I organized the files:
+```text
+src/
+├── app/              # The pages (Dashboard, Login, Users, Products)
+├── components/       # Reusable UI pieces (Sidebar, Header, Cards)
+├── lib/              # Helper functions (API setup)
+├── store/            # State management (Zustand stores)
+└── middleware.ts     # Protections (redirects to login if not signed in)
+```
+
 ## How to run it
 
 1.  **Get the code:** Download this folder.
