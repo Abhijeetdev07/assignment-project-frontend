@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard',
-  description: 'Manage your users and products with ease.',
+  description: 'Manage your users and products with me',
 };
 
 export default function RootLayout({
