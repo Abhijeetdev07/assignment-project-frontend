@@ -57,4 +57,4 @@ The login screen will automatically fill in the details from your `.env` file.
 *   **User:** `michaelw`
 *   **Pass:** `michaelwpass`
 
-That's it!
+That's it thanks for this opportunity
