@@ -114,7 +114,7 @@ export default function UsersPage() {
                             ) : (
                                 users.map((user) => (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={user.id}>
-                                        <TableCell sx={{ py: { xs: 1, sm: 1.5 } }}>
+                                        <TableCell sx={{ py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1.25, sm: 2 } }}>
                                                 <Avatar
                                                     src={user.image}
@@ -124,13 +124,14 @@ export default function UsersPage() {
                                                 <Typography
                                                     variant="subtitle2"
                                                     fontWeight="medium"
-                                                    sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}
+                                                    noWrap
+                                                    sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' }, maxWidth: { xs: 140, sm: 220 } }}
                                                 >
                                                     {user.firstName} {user.lastName}
                                                 </Typography>
                                             </Box>
                                         </TableCell>
-                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.email}</TableCell>
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>{user.email}</TableCell>
                                         <TableCell sx={{ py: { xs: 1, sm: 1.5 } }}>
                                             <Chip
                                                 label={user.gender}
@@ -140,8 +141,8 @@ export default function UsersPage() {
                                                 sx={{ textTransform: 'capitalize', fontSize: { xs: '0.7rem', sm: '0.75rem' } }}
                                             />
                                         </TableCell>
-                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.phone}</TableCell>
-                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 } }}>{user.company.title}</TableCell>
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>{user.phone}</TableCell>
+                                        <TableCell sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem' }, py: { xs: 1, sm: 1.5 }, whiteSpace: 'nowrap' }}>{user.company.title}</TableCell>
                                         <TableCell align="right" sx={{ py: { xs: 1, sm: 1.5 } }}>
                                             <Tooltip title="View Details">
                                                 <IconButton component={Link} href={`/users/${user.id}`}>
